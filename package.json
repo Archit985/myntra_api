@@ -1,0 +1,29 @@
+{
+	"name": "myntra_api",
+	"version": "1.0.0",
+	"description": "Backend API for Myntra's Hackeramp",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo 'No test Command specified\n'",
+		"start": "npx nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pradeepsh2203/myntra_api.git"
+	},
+	"author": "Team :- Hell Yeah",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/pradeepsh2203/myntra_api/issues"
+	},
+	"homepage": "https://github.com/pradeepsh2203/myntra_api#readme",
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.0.12"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.14"
+	}
+}
