@@ -15,7 +15,7 @@ mongoose.connection.once("open", () => {
 
 // routes
 app.use("/posts", require("./routes/posts"));
-
+app.use("/user", require("./routes/user"));
 app.listen(3000, () => {
 	console.log("The Server is up and running");
 });
