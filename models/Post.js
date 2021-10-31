@@ -6,6 +6,7 @@ const Post = new Schema({
 	content: { type: "String" },
 	tags: { type: "String" },
 	videoLink: { type: "String" },
+	productId: { type: "String" },
 });
 
 module.exports = mongoose.model("Posts", Post);

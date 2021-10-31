@@ -14,12 +14,13 @@ router.get("/", async (req, res) => {
 
 router.post("/add", (req, res) => {
 	try {
-		const { username, content, tags, videoLink } = req.body;
+		const { username, content, tags, videoLink, productId } = req.body;
 		const post = new Post({
 			username,
 			content,
 			tags,
 			videoLink,
+			productId,
 		});
 		post.save();
 		res.send(post);
