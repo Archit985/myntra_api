@@ -1,11 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 const app = express();
 
 // configuration
 app.use(express.json({ strict: false }));
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // Database Connection
 mongoose.connect(process.env.DATABASE_SRV);
