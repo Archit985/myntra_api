@@ -19,6 +19,9 @@ mongoose.connection.once("open", () => {
 app.use("/posts", require("./routes/posts"));
 app.use("/user", require("./routes/user"));
 app.use("/products", require("./routes/products"));
+app.get("/", (req, res) => {
+	res.send("Welcome to myntra Hackeramp Backend");
+});
 
 app.listen(3000, () => {
 	console.log("The Server is up and running");
