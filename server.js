@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json({ strict: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use("/files/", express.static("uploads"));
 
 // Database Connection
 mongoose.connect(process.env.DATABASE_SRV);
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 	res.send("Welcome to myntra Hackeramp Backend");
 });
 
+// Port
 app.listen(process.env.PORT || 3000, () => {
 	console.log("The Server is up and running");
 });

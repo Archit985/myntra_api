@@ -4,6 +4,7 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+// get All Users
 router.get("/", async (req, res) => {
 	try {
 		const users = await User.find({});
@@ -14,6 +15,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
+// getUserById
 router.post("/", async (req, res) => {
 	try {
 		const { id } = req.body;
@@ -29,6 +31,7 @@ router.post("/", async (req, res) => {
 	}
 });
 
+// Add a user
 router.post("/add", async (req, res) => {
 	try {
 		var signUp_details = req.body;
@@ -65,6 +68,7 @@ router.post("/add", async (req, res) => {
 	}
 });
 
+// login the user
 router.post("/login", async (req, res) => {
 	try {
 		var token = undefined;

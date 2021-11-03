@@ -1,7 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
+const multer = require("multer");
+require("dotenv").config();
 
+// Configuration
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, "./uploads");
+	},
+	filename: function (req, file, cb) {
+		cb(null, Date.now() + "-" + file.originalname.split(" ").join("-"));
+	},
+});
+const upload = multer({ storage: storage });
+
+// get All Posts
 router.get("/", async (req, res) => {
 	try {
 		const posts = await Post.find({});
@@ -12,14 +26,15 @@ router.get("/", async (req, res) => {
 	}
 });
 
-router.post("/add", (req, res) => {
+// Add a Post
+router.post("/add", upload.single("video"), async (req, res) => {
 	try {
-		const { username, content, tags, videoLink, productId } = req.body;
+		const { username, content, tags, productId } = req.body;
 		const post = new Post({
 			username,
 			content,
 			tags,
-			videoLink,
+			videoLink: req.file.filename,
 			productId,
 		});
 		post.save();
@@ -30,10 +45,10 @@ router.post("/add", (req, res) => {
 	}
 });
 
+// get Post by Id
 router.post("/", async (req, res) => {
 	try {
 		const { id } = req.body;
-		console.log(req.body);
 		const post = await Post.findOne({ _id: id });
 		res.send(post);
 	} catch (err) {
