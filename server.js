@@ -23,6 +23,6 @@ app.get("/", (req, res) => {
 	res.send("Welcome to myntra Hackeramp Backend");
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log("The Server is up and running");
 });
